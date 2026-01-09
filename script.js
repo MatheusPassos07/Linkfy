@@ -23,3 +23,7 @@ function togglemode() {
     img.setAttribute("alt", "avatar negro")
   }
 }
+function update year() {
+  const yearSpan = document.getElementById("year")
+  yearSpan.textContent = new Date().getFullYear()
+}
