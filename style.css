@@ -6,12 +6,17 @@
 
 :root {
   --text-color: white;
-  --bg-url: url(assets/bg-desktop.jpg);
+  --bg-url: url(assets/bg-mobile.jpg);
   --border-color: rgba(255, 255, 255, 0.5);
   --button-background-color: rgba(255, 255, 255, 0.05);
   --button-background-color-hover: rgba(0, 0, 0, 0.02);
   --social-networks-color: rgba(255, 255, 255, 0.2);
-  --theme: url(assets/MoonStars.svg);
+  --switch-thumb: #ffffff;
+  /* botão */
+  --switch-bg: #2b2b2b;
+  /* trilha (dark)*/
+  --switch-icon: url(assets/MoonStars.svg);
+  /*icone do botão*/
 }
 
 .light {
@@ -21,7 +26,11 @@
   --button-background-color: rgba(0, 0, 0, 0.05);
   --button-background-color-hover: rgba(0, 0, 0, 0.02);
   --social-networks-color: rgba(0, 0, 0, 0.1);
-  --theme: url(assets/Sun.svg);
+  --switch-thumb: #ffffff;
+  /* botão */
+  --switch-bg: #dcdcdc;
+  /* trilha (light)*/
+  --switch-icon: url(assets/Sun.svg);
 }
 
 body {
@@ -41,6 +50,7 @@ body * {
   font-family: "Inter", sans-serif;
   color: var(--text-color);
 }
+
 #container {
   width: 100%;
   max-width: 588px;
@@ -64,31 +74,46 @@ body * {
   line-height: 24px;
   margin-top: 8px;
 }
+
+#profile .subtitle {
+  font-size: 14px;
+  opacity: 0.7;
+  margin-top: 4px;
+}
+
 /*Switch - botao para dark mode/lightmode*/
 
 #switch {
   position: relative;
   width: 64px;
-
   margin: 4px auto;
+  background: var(--switch-bg);
+  border-radius: 999px;
 }
+
 #switch button {
   width: 32px;
   height: 32px;
-  background: white var(--theme) no-repeat center;
-  border: 0;
+
+  background: var(--switch-icon) var(--switch-thumb) no-repeat center;
+  border: none;
   border-radius: 50%;
 
   position: absolute;
-  z-index: 1;
   top: 50%;
   left: 0;
   transform: translateY(-50%);
+
+  cursor: pointer;
+  z-index: 1;
+
+  /*animação*/
+  transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+  will-change: transform;
 }
 
-.light #switch button {
-  right: 0;
-  left: initial;
+#switch button.is-active {
+  transform: translate(32px, -50%);
 }
 
 #switch span {
@@ -101,6 +126,7 @@ body * {
   -webkit-backdrop-filter: blur(4px);
   border-radius: 9999px;
 }
+
 /*Links de redes sociais */
 
 ul {
@@ -140,6 +166,7 @@ ul li a:hover {
   padding: 24px 0;
   font-size: 24px;
 }
+
 #social-networks a {
   display: flex;
   justify-content: center;
@@ -158,12 +185,14 @@ footer {
   text-align: center;
   font-size: 14px;
 }
+
 footer {
   margin-top: 40px;
   padding: 16px 0;
   text-align: center;
   font-size: 14px;
-  color: #9ca3af; /* cinza elegante */
+  color: #9ca3af;
+  /* cinza elegante */
 }
 
 footer a {
