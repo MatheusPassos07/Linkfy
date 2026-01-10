@@ -69,9 +69,9 @@ body * {
   width: 112px;
 }
 
-#profile p {
+#profile h1 {
   font-weight: 500;
-  line-height: 24px;
+  line-height: 32px;
   margin-top: 8px;
 }
 
@@ -114,6 +114,10 @@ body * {
 
 #switch button.is-active {
   transform: translate(32px, -50%);
+}
+
+#switch button:hover {
+  outline: 8px solid var(--social-networks-color);
 }
 
 #switch span {
